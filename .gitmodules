@@ -4,3 +4,12 @@
 [submodule "2nd-Semester/Databases_2022"]
 	path = 2nd-Semester/Databases/Databases_2022
 	url = https://github.com/mar-fol/Databases_2022
+[submodule "1st-Semester/Algorithms/example-optimization-algorithm-for-best-time-arrival"]
+	path = 1st-Semester/Algorithms/1.BestTime2Party_[arrival_optimization_algorithm]
+	url = https://github.com/mar-fol/example-optimization-algorithm-for-best-time-arrival
+[submodule "1st-Semester/Algorithms/node-incidence-matrix"]
+	path = 1st-Semester/Algorithms/2.SocialFriends_[node-incidence-matrix]
+	url = https://github.com/mar-fol/node-incidence-matrix
+[submodule "3rd-Semester/Object-Oriented-Programming/SurvNet_Java"]
+	path = 3rd-Semester/Object-Oriented-Programming/SurveillanceNet[2nd+3rd_Implementation]
+	url = https://github.com/mar-fol/SurvNet_Java
