@@ -1,5 +1,0 @@
-Here you can find the statistics of the grades earned in the exercises above. 
-(Note: All grades, regardless of their original values, have been changed to represent 
-an equal value number between 1 and 10)
-
-https://power-wish-cd2.notion.site/52a2ffcf25e0443a911be2dc644be4c9?v=77a90cd351164506b65e04b04f0b5aae
