@@ -2,7 +2,7 @@
 	path = 2nd-Semester/Data_Structures/data_structures_uom_2022
 	url = https://github.com/mar-fol/data_structures_uom_2022
 [submodule "2nd-Semester/Databases_2022"]
-	path = 2nd-Semester/Databases/Databases
+	path = 2nd-Semester/Databases_2022
 	url = https://github.com/mar-fol/Databases_2022
 [submodule "1st-Semester/Algorithms/example-optimization-algorithm-for-best-time-arrival"]
 	path = 1st-Semester/Algorithms/1.BestTime2Party_[arrival_optimization_algorithm]
