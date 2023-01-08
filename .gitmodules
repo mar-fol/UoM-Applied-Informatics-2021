@@ -1,9 +1,6 @@
 [submodule "2nd-Semester/data_structures_uom_2022"]
 	path = 2nd-Semester/Data_Structures/data_structures_uom_2022
 	url = https://github.com/mar-fol/data_structures_uom_2022
-[submodule "2nd-Semester/Databases_2022"]
-	path = 2nd-Semester/Databases_2022
-	url = https://github.com/mar-fol/Databases_2022
 [submodule "1st-Semester/Algorithms/example-optimization-algorithm-for-best-time-arrival"]
 	path = 1st-Semester/Algorithms/1.BestTime2Party_[arrival_optimization_algorithm]
 	url = https://github.com/mar-fol/example-optimization-algorithm-for-best-time-arrival
@@ -13,3 +10,9 @@
 [submodule "3rd-Semester/Object-Oriented-Programming/SurvNet_Java"]
 	path = 3rd-Semester/Object-Oriented-Programming/SurveillanceNet[2nd+3rd_Implementation]
 	url = https://github.com/mar-fol/SurvNet_Java
+[submodule "2nd-Semester/Data_Structures_2022"]
+	path = 2nd-Semester/Data_Structures
+	url = https://github.com/mar-fol/Data_Structures_2022
+[submodule "2nd-Semester/Databases_2022"]
+	path = 2nd-Semester/Databases
+	url = https://github.com/mar-fol/Databases_2022
