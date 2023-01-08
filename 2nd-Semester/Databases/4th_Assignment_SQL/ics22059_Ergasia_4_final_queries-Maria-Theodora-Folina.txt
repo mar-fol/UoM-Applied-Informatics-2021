@@ -1,0 +1,72 @@
+--ics22059
+--Μαρία Θεοδώρα Φωλίνα
+-- Στο τέλος του κάθε αιτήματος φαίνεται μέσα σε αγκύλες το πλήθος των εγγραφών που πρέπει να είναι στην απάντηση
+
+-- 1. Να εμφανιστούν τα ονόματα των τουριστών που έχουν συμμετάσχει σε δραστηριότητα με όνομα “trip” ή “walking tour”. [3]
+
+select distinct tourist.name
+from tourist natural join participate natural join activity
+where activity.aname='trip' or activity.aname='walking tour';
+
+-- 2. Να εμφανιστούν οι κωδικοί και τα ονόματα των τουριστών που κατάγονται από τη Γαλλία και δεν έμειναν σε ξενοδοχείο στις Ηνωμένες Πολιτείες της Αμερικής. [1]
+
+select distinct tcode,tourist.name
+from (tourist natural join stay) join hotel on hotel.hcode=stay.hcode
+where tourist.country='France' and hotel.country<>'USA';
+
+
+-- 3. Να εμφανιστούν τα ονόματα των ξενοδοχείων που βρίσκονται και στην Ελλάδα και στην Αμερική. [0]
+
+select hotel.name
+from hotel
+where hotel.country='Greece' and hotel.country='USA';
+
+-- 4. Να βρεθεί για κάθε χώρα πόσοι τουρίστες την επισκέφτηκαν. Ως χώρα θεωρείστε τη χώρα του ξενοδοχείου που έμειναν. Κάθε τουρίστας να μετρηθεί μόνο μία φορά για κάθε χώρα. Να εμφανιστεί η χώρα και το πλήθος των τουριστών. [4]
+
+select hotel.country, count(distinct tcode)
+from (tourist natural join stay) join hotel on hotel.hcode=stay.hcode
+group by hotel.country;
+
+-- 5. Να βρεθεί το συνολικό κόστος διαμονής ανά τουρίστα αλλά μόνο για τους τουρίστες που ξόδεψαν περισσότερο από 1000 ευρώ συνολικά για τη διαμονή τους. Να εμφανιστεί το όνομα του τουρίστα και το συνολικό κόστος διαμονής. [2]
+
+select tourist.name, sum(stay.cost)
+from tourist natural join stay
+group by tourist.name
+having sum(stay.cost)> 1000;
+
+
+-- 6. Να βρεθεί για κάθε δραστηριότητα, η οποία έχει διάρκεια μεγαλύτερη από 150 λεπτά και μόνο δύο τουρίστες συμμετείχαν σε αυτή, πόσα χρήματα έδωσαν οι τουρίστες. Να εμφανιστεί το όνομα της δραστηριότητας και τα συνολικά έσοδα. [1]
+
+select activity.aname, sum(participate.cost)
+from activity natural join participate
+where activity.duration_in_minutes>150 
+group by activity.aname
+having count(tcode)=2;
+
+-- 7. Να βρεθεί ο τουρίστας που ξόδεψε συνολικά τα περισσότερα χρήματα για διαμονή. Να εμφανιστεί το όνομα του τουρίστα και τα χρήματα που ξόδεψε. [2]
+
+select tourist.name, sum(stay.cost)
+from stay natural join tourist
+group by tourist.name
+order by sum(stay.cost) desc
+limit 2;
+
+-- 8. Να εμφανιστούν τα στοιχεία των τουριστών που είναι γυναίκες και κατάγονται από χώρα που περιέχει το γράμμα ‘r’ και τα στοιχεία διαμονής τους σε ξενοδοχείο αν υπάρχουν. [3]
+
+select *
+from (tourist t left join stay using(tcode)) left join hotel on hotel.hcode=stay.hcode
+where t.country like '%r%' and t.gender='female' or t.name not in (select t.name from (tourist natural join stay));
+
+-- 9. Να εμφανιστούν τα ονόματα των τουριστών που την ίδια χρονιά είχαν μείνει σε ξενοδοχείο και είχαν κάνει μία δραστηριότητα. [3]
+
+select distinct tourist.name
+from (participate natural join tourist) join stay on participate.tcode=stay.tcode 
+where participate.year=stay.year;
+
+-- 10. Να εμφανιστούν τα στοιχεία των τουριστών που έμειναν σε όλα τα ξενοδοχεία που βρίσκονται στην Ελλάδα. [4]
+
+select distinct tourist.name, tcode, tourist.country, age, gender
+from (tourist natural join stay) join hotel on hotel.hcode=stay.hcode
+where hotel.name in (select hotel."name"
+			from (tourist natural join stay) join hotel on hotel.hcode=stay.hcode
+			where hotel.country='Greece');
