@@ -19,3 +19,6 @@
 [submodule "3rd-Semester/imunes-VLSM-subnetting"]
 	path = 3rd-Semester/Computer-Networks[IMUNES-subnetting]
 	url = https://github.com/mar-fol/imunes-VLSM-subnetting
+[submodule "3rd-Semester/SurvNet_Java"]
+	path = 3rd-Semester/Object-Oriented-Programming[SurvNet]
+	url = https://github.com/mar-fol/SurvNet_Java
