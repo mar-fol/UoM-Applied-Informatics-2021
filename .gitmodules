@@ -16,3 +16,6 @@
 [submodule "2nd-Semester/Databases_2022"]
 	path = 2nd-Semester/Databases
 	url = https://github.com/mar-fol/Databases_2022
+[submodule "3rd-Semester/imunes-VLSM-subnetting"]
+	path = 3rd-Semester/Computer-Networks[IMUNES-subnetting]
+	url = https://github.com/mar-fol/imunes-VLSM-subnetting
